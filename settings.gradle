@@ -5,11 +5,23 @@ pluginManagement {
         mavenCentral()
     }
 }
+enableFeaturePreview("VERSION_CATALOGS")
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+    }
+    versionCatalogs {
+        libs {
+            version('version-compose', '1.1.1')
+            alias('compose-ui').to('androidx.compose.ui', 'ui').versionRef('version-compose')
+            alias('compose-material').to('androidx.compose.material', 'material').versionRef('version-compose')
+            alias('compose-ui-tooling').to('androidx.compose.ui', 'ui-tooling-preview').versionRef('version-compose')
+            bundle('compose', ['compose-ui', 'compose-material', 'compose-ui-tooling'])
+
+            alias('activity-compose').to('androidx.activity:activity-compose:1.4.0')
+        }
     }
 }
 rootProject.name = "SandboxApplication"

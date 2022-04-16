@@ -36,7 +36,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion libs.versions.version.compose.get()
     }
     packagingOptions {
         resources {
@@ -47,5 +47,5 @@ android {
 
 dependencies {
     implementation project(':ui')
-    implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation libs.activity.compose
 }
