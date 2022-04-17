@@ -1,5 +1,6 @@
 package com.example.ui.memo
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -53,7 +54,12 @@ fun MemoListScreen(
                         is Resource.Success -> {
                             LazyColumn {
                                 items(state.value) {
-                                    MemoRow(memo = it)
+                                    MemoRow(
+                                        memo = it,
+                                        onClick = {
+                                            viewModel.deleteMemo(it.id)
+                                        }
+                                    )
                                 }
                             }
                         }
@@ -80,8 +86,12 @@ fun MemoListScreen(
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-private fun MemoRow(memo: MemoUiModel) {
+private fun MemoRow(
+    memo: MemoUiModel,
+    onClick: () -> Unit
+) {
     ListItem(
+        modifier = Modifier.clickable(onClick = onClick),
         text = { Text(text = memo.id) },
         secondaryText = { Text(text = memo.title) }
     )

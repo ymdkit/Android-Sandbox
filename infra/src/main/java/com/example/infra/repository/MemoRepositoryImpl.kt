@@ -28,7 +28,7 @@ class MemoRepositoryImpl @Inject constructor(
         return Memo.createSampleObject()
     }
 
-    override suspend fun deleteMemo(memo: Memo) {
-        // todo
+    override suspend fun deleteMemo(memoId: String) {
+        db.memoDao().delete(memoId)
     }
 }

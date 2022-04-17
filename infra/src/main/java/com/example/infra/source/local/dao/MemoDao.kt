@@ -14,4 +14,6 @@ interface MemoDao {
     @Insert
     suspend fun insertMemo(memoEntity: MemoEntity)
 
+    @Query("DELETE FROM memos WHERE id = :memoId")
+    fun delete(memoId: String)
 }

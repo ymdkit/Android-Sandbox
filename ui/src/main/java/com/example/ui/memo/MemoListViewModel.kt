@@ -50,4 +50,13 @@ class MemoListViewModel @Inject constructor(
             load()
         }
     }
+
+    fun deleteMemo(memoId: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            memoRepository.deleteMemo(
+                memoId
+            )
+            load()
+        }
+    }
 }
