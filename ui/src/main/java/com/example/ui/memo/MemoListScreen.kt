@@ -1,4 +1,4 @@
-package com.example.ui.main
+package com.example.ui.memo
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
@@ -10,7 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.ui.theme.SandboxApplicationTheme
 
 @Composable
-fun MainScreen() {
+fun MemoListScreen() {
     SandboxApplicationTheme {
         // A surface container using the 'background' color from the theme
         Surface(
