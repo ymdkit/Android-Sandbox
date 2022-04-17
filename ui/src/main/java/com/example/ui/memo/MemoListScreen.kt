@@ -7,10 +7,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ui.theme.SandboxApplicationTheme
 
 @Composable
-fun MemoListScreen() {
+fun MemoListScreen(
+    viewModel: MemoListViewModel = viewModel()
+) {
     SandboxApplicationTheme {
         // A surface container using the 'background' color from the theme
         Surface(

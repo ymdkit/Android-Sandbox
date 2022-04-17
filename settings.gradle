@@ -22,7 +22,8 @@ dependencyResolutionManagement {
             alias('compose-ui').to('androidx.compose.ui', 'ui').versionRef('version-compose')
             alias('compose-material').to('androidx.compose.material', 'material').versionRef('version-compose')
             alias('compose-ui-tooling').to('androidx.compose.ui', 'ui-tooling-preview').versionRef('version-compose')
-            bundle('compose', ['compose-ui', 'compose-material', 'compose-ui-tooling'])
+            alias('lifecycle-viewmodel-compose').to('androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1')
+            bundle('compose', ['compose-ui', 'compose-material', 'compose-ui-tooling', 'lifecycle-viewmodel-compose'])
 
             alias('activity-compose').to('androidx.activity:activity-compose:1.4.0')
         }
