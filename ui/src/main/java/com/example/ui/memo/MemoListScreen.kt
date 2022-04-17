@@ -39,6 +39,7 @@ fun MemoListScreen(
                     when (val state = memoListState.value) {
                         is Resource.Empty -> {
                             Box(
+                                modifier = Modifier.fillMaxSize(),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text("Empty")
@@ -46,6 +47,7 @@ fun MemoListScreen(
                         }
                         is Resource.Loading -> {
                             Box(
+                                modifier = Modifier.fillMaxSize(),
                                 contentAlignment = Alignment.Center
                             ) {
                                 CircularProgressIndicator()
@@ -65,6 +67,7 @@ fun MemoListScreen(
                         }
                         is Resource.Failure -> {
                             Box(
+                                modifier = Modifier.fillMaxSize(),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(state.message)
