@@ -8,3 +8,4 @@ Sandbox for android application
     - Version Catalog
 - Jetpack Compose
 - Dagger Hilt
+- Room

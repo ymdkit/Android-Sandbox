@@ -35,4 +35,6 @@ dependencies {
     implementation project(':domain')
     implementation libs.hilt.android
     kapt libs.hilt.android.compiler
+    implementation libs.bundles.room
+    kapt libs.room.compiler
 }
