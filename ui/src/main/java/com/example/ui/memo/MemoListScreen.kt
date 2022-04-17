@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -31,36 +33,47 @@ fun MemoListScreen(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
-            when (val state = memoListState.value) {
-                is Resource.Empty -> {
-                    Box(
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text("Empty")
-                    }
-                }
-                is Resource.Loading -> {
-                    Box(
-                        contentAlignment = Alignment.Center
-                    ) {
-                        CircularProgressIndicator()
-                    }
-                }
-                is Resource.Success -> {
-                    LazyColumn {
-                        items(state.value) {
-                            MemoRow(memo = it)
+            Scaffold(
+                content = {
+                    when (val state = memoListState.value) {
+                        is Resource.Empty -> {
+                            Box(
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text("Empty")
+                            }
+                        }
+                        is Resource.Loading -> {
+                            Box(
+                                contentAlignment = Alignment.Center
+                            ) {
+                                CircularProgressIndicator()
+                            }
+                        }
+                        is Resource.Success -> {
+                            LazyColumn {
+                                items(state.value) {
+                                    MemoRow(memo = it)
+                                }
+                            }
+                        }
+                        is Resource.Failure -> {
+                            Box(
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(state.message)
+                            }
                         }
                     }
-                }
-                is Resource.Failure -> {
-                    Box(
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(state.message)
+                },
+                floatingActionButton = {
+                    FloatingActionButton(onClick = {
+                        viewModel.createMemo()
+                    }) {
+                        Icon(Icons.Filled.Add, contentDescription = "create memo")
                     }
                 }
-            }
+            )
         }
     }
 }
