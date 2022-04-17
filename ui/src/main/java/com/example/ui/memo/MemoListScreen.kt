@@ -95,7 +95,6 @@ private fun MemoRow(
 ) {
     ListItem(
         modifier = Modifier.clickable(onClick = onClick),
-        text = { Text(text = memo.id) },
-        secondaryText = { Text(text = memo.title) }
+        text = { Text(text = memo.title) },
     )
 }
