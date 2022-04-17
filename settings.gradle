@@ -14,6 +14,10 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         libs {
+            version('version-hilt', '2.41')
+            alias('hilt-android').to('com.google.dagger', 'hilt-android').versionRef('version-hilt')
+            alias('hilt-android-compiler').to('com.google.dagger', 'hilt-android-compiler').versionRef('version-hilt')
+
             version('version-compose', '1.1.1')
             alias('compose-ui').to('androidx.compose.ui', 'ui').versionRef('version-compose')
             alias('compose-material').to('androidx.compose.material', 'material').versionRef('version-compose')
