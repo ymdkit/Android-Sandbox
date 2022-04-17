@@ -32,3 +32,4 @@ dependencyResolutionManagement {
 rootProject.name = "SandboxApplication"
 include ':app'
 include ':ui'
+include ':domain'

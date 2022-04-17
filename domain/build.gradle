@@ -1,8 +1,6 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -29,17 +27,4 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion libs.versions.version.compose.get()
-    }
-}
-
-dependencies {
-    implementation project(':domain')
-    implementation libs.bundles.compose
-    implementation libs.hilt.android
-    kapt libs.hilt.android.compiler
 }
