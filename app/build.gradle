@@ -49,6 +49,7 @@ android {
 
 dependencies {
     implementation project(':ui')
+    implementation project(':infra')
     implementation libs.activity.compose
     implementation libs.hilt.android
     kapt libs.hilt.android.compiler
