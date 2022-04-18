@@ -13,13 +13,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ui.theme.SandboxApplicationTheme
 import com.example.ui.utils.Resource
 
 @Composable
 fun MemoListScreen(
-    viewModel: MemoListViewModel = viewModel()
+    viewModel: MemoListViewModel,
+    navigateToCreateMemo: () -> Unit
 ) {
 
     val memoListState = viewModel.flow.collectAsState(initial = Resource.Empty)
@@ -77,7 +77,7 @@ fun MemoListScreen(
                 },
                 floatingActionButton = {
                     FloatingActionButton(onClick = {
-                        viewModel.createMemo()
+                        navigateToCreateMemo()
                     }) {
                         Icon(Icons.Filled.Add, contentDescription = "create memo")
                     }

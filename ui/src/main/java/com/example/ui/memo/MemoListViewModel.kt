@@ -2,7 +2,6 @@ package com.example.ui.memo
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.model.Memo
 import com.example.domain.repository.MemoRepository
 import com.example.ui.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -11,8 +10,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import java.time.LocalDateTime
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -34,20 +31,6 @@ class MemoListViewModel @Inject constructor(
             } catch (e: Exception) {
                 _flow.value = Resource.Failure("読み込みに失敗しました")
             }
-        }
-    }
-
-    fun createMemo() {
-        viewModelScope.launch(Dispatchers.IO) {
-            memoRepository.createMemo(
-                Memo(
-                    id = UUID.randomUUID().toString(),
-                    title = "タイトル",
-                    createdAt = LocalDateTime.now(),
-                    updatedAt = LocalDateTime.now()
-                )
-            )
-            load()
         }
     }
 
