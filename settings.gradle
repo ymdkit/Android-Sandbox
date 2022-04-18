@@ -29,7 +29,9 @@ dependencyResolutionManagement {
             alias('compose-material').to('androidx.compose.material', 'material').versionRef('version-compose')
             alias('compose-ui-tooling').to('androidx.compose.ui', 'ui-tooling-preview').versionRef('version-compose')
             alias('lifecycle-viewmodel-compose').to('androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1')
-            bundle('compose', ['compose-ui', 'compose-material', 'compose-ui-tooling', 'lifecycle-viewmodel-compose'])
+            alias('navigation-compose').to('androidx.navigation:navigation-compose:2.4.1')
+            alias('hilt-navigation-compose').to('androidx.hilt:hilt-navigation-compose:1.0.0')
+            bundle('compose', ['compose-ui', 'compose-material', 'compose-ui-tooling', 'lifecycle-viewmodel-compose', 'navigation-compose', 'hilt-navigation-compose'])
 
             alias('activity-compose').to('androidx.activity:activity-compose:1.4.0')
         }

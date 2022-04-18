@@ -7,5 +7,6 @@ Sandbox for android application
 - MultiModule
     - Version Catalog
 - Jetpack Compose
+    - Navigation Compose
 - Dagger Hilt
 - Room
